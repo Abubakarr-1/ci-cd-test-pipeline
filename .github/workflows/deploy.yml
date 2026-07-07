@@ -17,6 +17,7 @@ jobs:
       - name: Sync repo
         run: |
           Set-ExecutionPolicy Bypass -Scope Process -Force
+          git config --global --add safe.directory C:/ci-cd-test-pipeline
           cd C:\ci-cd-test-pipeline
           git fetch origin main
           git reset --hard origin/main
