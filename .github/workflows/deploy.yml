@@ -12,7 +12,11 @@ jobs:
 
   deploy:
     needs: test
-    runs-on: [self-hosted, test-site]
+    strategy:
+      matrix:
+        site: [test-site, site2]
+      fail-fast: false
+    runs-on: [self-hosted, "${{ matrix.site }}"]
     steps:
       - name: Sync repo
         run: |
